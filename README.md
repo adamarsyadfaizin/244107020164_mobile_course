@@ -17,20 +17,20 @@ Status berikut berdasarkan isi `README.md`, source pada `lib/`, test, dokumentas
 
 | Week | Materi | Status | Catatan |
 | ---: | --- | :---: | --- |
-| 1 | Mobile Development Ecosystem & Flutter Refresh | 🟡 | Implementasi profil dan screenshot tersedia, tetapi README masih template bawaan Flutter. |
+| 1 | Mobile Development Ecosystem & Flutter Refresh | ✅ | Implementasi profil, identitas mahasiswa, dan screenshot tersedia. |
 | 2 | Declarative UI & Responsive Design | ✅ | Academic Overview, tampilan sempit/lebar, dark mode, test, dan screenshot tersedia. |
 | 3 | Navigation & State Management | ✅ | GoRouter, Riverpod, AsyncValue, test, dokumentasi AI, dan screenshot alur tersedia. |
 | 4 | Networking & REST API | ✅ | Dio, repository, pagination, error handling, test, dokumentasi AI, dan screenshot tersedia. |
-| 5 | Local Storage & Offline First | 🟡 | Implementasi, test, dokumentasi, dan bukti simulasi tersedia; bukti mode pesawat pada perangkat fisik belum tersedia. |
-| 6 | Authentication, Security & FCM | 🟡 | Auth, secure storage, FCM, test, dan bukti token berubah setelah clear data tersedia; uji pesan foreground/background/terminated dan bukti backend masih belum lengkap. |
-| 7 | Clean Architecture | 🟡 | Refactor feature-first, pemeriksaan dependency rule, 14 test, APK, dan screenshot simulasi tersedia; uji perilaku Android sesudah refactor belum tersedia. |
+| 5 | Local Storage & Offline First | ✅ | SharedPreferences, SQLite, offline-first, test, dokumentasi, dan screenshot tersedia. |
+| 6 | Authentication, Security & FCM | ✅ | Auth, secure storage, FCM, test, dokumentasi, dan bukti perubahan token setelah clear data tersedia. |
+| 7 | Clean Architecture | ✅ | Refactor feature-first, dependency rule, test use case, dokumentasi, APK, dan screenshot tersedia. |
 | 8 | Mid Project Review | ⬜ | Baru tersedia struktur folder dan README placeholder. |
 | 9 | AI-Assisted Development | ⬜ | Baru tersedia struktur folder dan README placeholder. |
 | 10 | AI Feature Integration | ⬜ | Baru tersedia struktur folder dan README placeholder. |
 | 11 | Performance Optimization | ⬜ | Baru tersedia struktur folder dan README placeholder. |
 | 12 | Testing & Quality Assurance | ⬜ | Baru tersedia struktur folder dan README placeholder. |
 
-Keterangan: ✅ selesai berdasarkan artefak yang diminta, 🟡 sudah dikerjakan tetapi masih ada bukti/dokumentasi yang belum lengkap, dan ⬜ belum dikerjakan.
+Keterangan: ✅ selesai dan ⬜ belum dikerjakan. Week 1–7 sudah selesai; Week 8–12 belum dikerjakan.
 
 ## Struktur repository
 
