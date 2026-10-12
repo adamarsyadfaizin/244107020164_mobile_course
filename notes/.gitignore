@@ -1,0 +1,7 @@
+# Track only the learning-note categories.
+/*
+!/.gitignore
+!/reflections/
+!/learning-journal/
+!/resources/
+

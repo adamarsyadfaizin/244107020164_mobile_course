@@ -1,30 +1,63 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:week_2_declarative_ui_responsive_design/main.dart';
+import 'package:responsive_dashboard/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Dashboard satu kolom di layar sempit', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(const DashboardApp());
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    final cards = find.byType(InfoCard);
+    expect(cards, findsNWidgets(4));
+    expect(tester.getCenter(cards.at(0)).dx, tester.getCenter(cards.at(1)).dx);
+    expect(
+      tester.getCenter(cards.at(0)).dy,
+      lessThan(tester.getCenter(cards.at(1)).dy),
+    );
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Dashboard dua kolom di layar lebar', (tester) async {
+    tester.view.physicalSize = const Size(1200, 800);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(const DashboardApp());
+
+    final cards = find.byType(InfoCard);
+    expect(cards, findsNWidgets(4));
+    expect(tester.getCenter(cards.at(0)).dy, tester.getCenter(cards.at(1)).dy);
+    expect(
+      tester.getCenter(cards.at(0)).dx,
+      lessThan(tester.getCenter(cards.at(1)).dx),
+    );
+  });
+
+  testWidgets('CupertinoSwitch mengganti tema', (tester) async {
+    await tester.pumpWidget(const DashboardApp());
+    expect(
+      Theme.of(tester.element(find.byType(DashboardPage))).brightness,
+      Brightness.light,
+    );
+
+    await tester.tap(find.byType(CupertinoSwitch));
+    await tester.pumpAndSettle();
+
+    expect(
+      Theme.of(tester.element(find.byType(DashboardPage))).brightness,
+      Brightness.dark,
+    );
+  });
+
+  testWidgets('kartu memiliki label aksesibilitas', (tester) async {
+    final semantics = tester.ensureSemantics();
+    await tester.pumpWidget(const DashboardApp());
+
+    expect(find.bySemanticsLabel('Assignments: 8'), findsOneWidget);
+    expect(find.bySemanticsLabel('Attendance: 92%'), findsOneWidget);
+    semantics.dispose();
   });
 }

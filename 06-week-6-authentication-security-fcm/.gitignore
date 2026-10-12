@@ -1,0 +1,9 @@
+# Keep Flutter/platform boilerplate on disk, but track only course deliverables.
+/*
+!/.gitignore
+!/README.md
+!/lib/
+!/test/
+!/screenshots/
+!/docs/
+
